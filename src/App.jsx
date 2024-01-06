@@ -9,9 +9,9 @@ import { useState } from "react";
 
 const App = () => {
    const [dataFromChild, setDataFromChild] = useState();
-   const reciveDataFromChild = (data) => {
-      setDataFromChild(data);
-      console.log(data);
+   const reciveDataFromChild = (weather) => {
+      console.log(weather);
+      setDataFromChild(weather);
    };
    return (
       <div className="flex">

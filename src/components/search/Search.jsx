@@ -7,6 +7,7 @@ const Search = ({ sendDataToParent }) => {
    const handleClick = async () => {
       const textValue = inputRef.current.value;
       const weather = await callWeatherApi("weather", textValue);
+      console.log(weather);
       sendDataToParent(weather);
    };
 
