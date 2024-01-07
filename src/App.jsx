@@ -10,7 +10,6 @@ import { useState } from "react";
 const App = () => {
    const [dataFromChild, setDataFromChild] = useState();
    const reciveDataFromChild = (weather) => {
-      console.log(weather);
       setDataFromChild(weather);
    };
    return (

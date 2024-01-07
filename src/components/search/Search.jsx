@@ -1,5 +1,5 @@
 import { MagnifyingGlass } from "@phosphor-icons/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { callWeatherApi } from "../../libs/callApi";
 
 const Search = ({ sendDataToParent }) => {
@@ -7,12 +7,19 @@ const Search = ({ sendDataToParent }) => {
    const handleClick = async () => {
       const textValue = inputRef.current.value;
       const weather = await callWeatherApi("weather", textValue);
-      console.log(weather);
       sendDataToParent(weather);
    };
 
+   useEffect(() => {
+      async function callApi() {
+         const weather = await callWeatherApi("weather", "Indonesia");
+         sendDataToParent(weather);
+      }
+      callApi();
+   }, []);
+
    return (
-      <div className="flex bg-slate-700 rounded-sm w-full">
+      <div className="flex bg-slate-700 rounded-sm w-full relative">
          <input
             type="text"
             placeholder="Enter Your City"
