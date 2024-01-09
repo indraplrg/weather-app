@@ -47,7 +47,7 @@ const Card = ({ data }) => {
                <img
                   src={iconUrl}
                   alt={data?.weather[0].description}
-                  width="190px"
+                  width="200px"
                   className="p-3"
                />
             </div>

@@ -7,13 +7,15 @@ const Search = ({ sendDataToParent }) => {
    const handleClick = async () => {
       const textValue = inputRef.current.value;
       const weather = await callWeatherApi("weather", textValue);
-      sendDataToParent(weather);
+      const forecast = await callWeatherApi("forecast", textValue);
+      sendDataToParent({ weather, forecast });
    };
 
    useEffect(() => {
       async function callApi() {
          const weather = await callWeatherApi("weather", "Indonesia");
-         sendDataToParent(weather);
+         const forecast = await callWeatherApi("forecast", "Indonesia");
+         sendDataToParent({ weather, forecast });
       }
       callApi();
    }, []);

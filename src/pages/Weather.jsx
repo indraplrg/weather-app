@@ -1,20 +1,25 @@
 import Card from "../components/card/Card";
+import Card2 from "../components/card/Card2";
 
 const Weather = ({ data }) => {
    return (
-      <div className="w-full h-full">
-         <h2 className="mb-2 text-xl font-semibold">Weather</h2>
-         <section className="h-2/5 flex gap-4">
+      <div className="h-full">
+         <h2 className="mb-2 text-xl font-semibold">Cuaca</h2>
+         <section className="h-2/6 flex gap-4">
             {data ? (
                <>
-                  <Card data={data} />
+                  <Card data={data.weather} />
                </>
             ) : null}
          </section>
 
-         <section className="h-2/4">
-            <h2 className="mb-2 text-xl font-semibold">Forecast</h2>
-            <div></div>
+         <h2 className="mb-2 mt-8 text-xl font-semibold">Ramalan Cuaca</h2>
+         <section>
+            {data ? (
+               <>
+                  <Card2 data={data.forecast} />
+               </>
+            ) : null}
          </section>
       </div>
    );

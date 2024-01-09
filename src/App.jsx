@@ -9,13 +9,13 @@ import { useState } from "react";
 
 const App = () => {
    const [dataFromChild, setDataFromChild] = useState();
-   const reciveDataFromChild = (weather) => {
-      setDataFromChild(weather);
+   const reciveDataFromChild = ({ weather, forecast }) => {
+      setDataFromChild({ weather, forecast });
    };
    return (
       <div className="flex">
          <Navbar />
-         <div className="p-2 w-screen flex flex-col gap-y-2">
+         <div className="p-4 w-screen flex flex-col gap-y-2">
             <Search sendDataToParent={reciveDataFromChild} />
             <Router>
                <Routes>
